@@ -1,0 +1,30 @@
+{
+  "name": "PawPal - 记录毛孩子的美好时光",
+  "short_name": "PawPal",
+  "description": "记录和分享宠物日常趣事的社交应用",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#2563eb",
+  "theme_color": "#2563eb",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "../assets/favicon.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "../assets/icon.png", 
+      "sizes": "1024x1024",
+      "type": "image/png"
+    }
+  ],
+  "categories": ["lifestyle", "social", "utilities"],
+  "lang": "zh-CN",
+  "scope": "/",
+  "features": [
+    "记录宠物趣事",
+    "照片分享",
+    "社交互动"
+  ]
+}

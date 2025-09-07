@@ -1,0 +1,26 @@
+<!-- SVG Placeholder Icon for PawPal -->
+<svg width="1024" height="1024" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="1024" height="1024" fill="#2563eb" rx="180"/>
+  
+  <!-- Paw Print -->
+  <g transform="translate(512,400)">
+    <!-- Main pad -->
+    <ellipse cx="0" cy="0" rx="80" ry="100" fill="#ffffff"/>
+    
+    <!-- Toes -->
+    <ellipse cx="-60" cy="-120" rx="35" ry="50" fill="#ffffff"/>
+    <ellipse cx="0" cy="-140" rx="40" ry="55" fill="#ffffff"/>
+    <ellipse cx="60" cy="-120" rx="35" ry="50" fill="#ffffff"/>
+    <ellipse cx="-30" cy="-110" rx="25" ry="35" fill="#ffffff"/>
+    <ellipse cx="30" cy="-110" rx="25" ry="35" fill="#ffffff"/>
+  </g>
+  
+  <!-- App Name -->
+  <text x="512" y="700" font-family="Arial, sans-serif" font-size="80" font-weight="bold" text-anchor="middle" fill="#ffffff">PawPal</text>
+  
+  <!-- Heart -->
+  <g transform="translate(650,300)">
+    <path d="M0,20 C0,0 20,-10 30,0 C40,-10 60,0 60,20 C60,40 30,60 30,60 C30,60 0,40 0,20 Z" fill="#ff6b6b"/>
+  </g>
+</svg>

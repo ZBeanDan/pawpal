@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="./assets/favicon.png">
+    <link rel="manifest" href="./manifest.json">
+    <meta name="theme-color" content="#2563eb">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="PawPal">
+    <link rel="apple-touch-icon" href="./assets/icon.png">
+    <title>PawPal - 记录毛孩子的美好时光</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+
+        .app {
+            max-width: 375px;
+            margin: 0 auto;
+            background: white;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        .header {
+            background: white;
+            padding: 20px;
+            border-bottom: 1px solid #e0e0e0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .header h1 {
+            font-size: 28px;
+            font-weight: bold;
+            color: #2563eb;
+        }
+
+        .header p {
+            font-size: 14px;
+            color: #666;
+            margin-top: 4px;
+        }
+
+        .camera-btn {
+            background: #2563eb;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 20px;
+        }
+
+        .moments-feed {
+            padding: 16px;
+        }
+
+        .moment-card {
+            background: white;
+            border-radius: 12px;
+            margin-bottom: 16px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .moment-header {
+            padding: 16px;
+            display: flex;
+            align-items: center;
+        }
+
+        .pet-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: #dbeafe;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin-right: 12px;
+        }
+
+        .pet-info h4 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 2px;
+        }
+
+        .pet-info span {
+            font-size: 12px;
+            color: #666;
+        }
+
+        .moment-content {
+            padding: 0 16px 16px;
+        }
+
+        .moment-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        .moment-story {
+            font-size: 14px;
+            line-height: 1.5;
+            color: #555;
+            margin-bottom: 12px;
+        }
+
+        .moment-photo {
+            width: 100%;
+            height: 200px;
+            border-radius: 8px;
+            object-fit: cover;
+            background: #f0f0f0;
+            margin-bottom: 12px;
+        }
+
+        .moment-actions {
+            padding: 12px 16px;
+            border-top: 1px solid #f0f0f0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .action-group {
+            display: flex;
+            gap: 16px;
+        }
+
+        .action-btn {
+            background: none;
+            border: none;
+            color: #666;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 14px;
+        }
+
+        .action-btn.liked {
+            color: #ef4444;
+        }
+
+        .fab {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            width: 56px;
+            height: 56px;
+            background: #2563eb;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.4);
+            z-index: 100;
+        }
+
+        .demo-note {
+            position: fixed;
+            bottom: 100px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #fef3c7;
+            color: #92400e;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            z-index: 99;
+        }
+
+        @media (max-width: 375px) {
+            .app {
+                max-width: 100vw;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="app">
+        <!-- Header -->
+        <header class="header">
+            <div>
+                <h1>PawPal</h1>
+                <p>记录毛孩子的美好时光 🐾</p>
+            </div>
+            <button class="camera-btn" onclick="showCreateDemo()">📷</button>
+        </header>
+
+        <!-- Moments Feed -->
+        <div class="moments-feed">
+            <!-- Moment 1 -->
+            <div class="moment-card">
+                <div class="moment-header">
+                    <div class="pet-avatar">🐕</div>
+                    <div class="pet-info">
+                        <h4>Max</h4>
+                        <span>2小时前</span>
+                    </div>
+                </div>
+                <div class="moment-content">
+                    <div class="moment-title">午后阳光浴时光</div>
+                    <div class="moment-story">
+                        Max今天找到了客厅里最温暖的那块阳光，懒懒地躺了整整一个下午。看着他这么惬意的样子，我都不忍心叫他起来吃饭了！
+                    </div>
+                    <img class="moment-photo" src="https://images.unsplash.com/photo-1552053831-71594a27632d?w=300&h=200&fit=crop" alt="Max享受阳光" />
+                </div>
+                <div class="moment-actions">
+                    <div class="action-group">
+                        <button class="action-btn liked" onclick="toggleLike(this)">
+                            ❤️ <span>12</span>
+                        </button>
+                        <button class="action-btn">
+                            💬 <span>3</span>
+                        </button>
+                    </div>
+                    <button class="action-btn">📤</button>
+                </div>
+            </div>
+
+            <!-- Moment 2 -->
+            <div class="moment-card">
+                <div class="moment-header">
+                    <div class="pet-avatar">🐱</div>
+                    <div class="pet-info">
+                        <h4>Luna</h4>
+                        <span>5小时前</span>
+                    </div>
+                </div>
+                <div class="moment-content">
+                    <div class="moment-title">偷吃小能手</div>
+                    <div class="moment-story">
+                        发现Luna偷偷爬上桌子想要吃我的三明治！被抓到的那一刻，她居然还理直气壮地喵了一声，好像在说"这有什么不对的吗？"
+                    </div>
+                </div>
+                <div class="moment-actions">
+                    <div class="action-group">
+                        <button class="action-btn" onclick="toggleLike(this)">
+                            🤍 <span>18</span>
+                        </button>
+                        <button class="action-btn">
+                            💬 <span>7</span>
+                        </button>
+                    </div>
+                    <button class="action-btn">📤</button>
+                </div>
+            </div>
+
+            <!-- Moment 3 -->
+            <div class="moment-card">
+                <div class="moment-header">
+                    <div class="pet-avatar">🐕</div>
+                    <div class="pet-info">
+                        <h4>Max</h4>
+                        <span>昨天</span>
+                    </div>
+                </div>
+                <div class="moment-content">
+                    <div class="moment-title">雨天的小委屈</div>
+                    <div class="moment-story">
+                        今天下雨不能出去散步，Max在门口坐了好久，时不时回头看我，眼神里写满了"为什么不带我出去玩"的委屈...
+                    </div>
+                    <img class="moment-photo" src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=300&h=200&fit=crop" alt="Max委屈的表情" />
+                </div>
+                <div class="moment-actions">
+                    <div class="action-group">
+                        <button class="action-btn" onclick="toggleLike(this)">
+                            🤍 <span>25</span>
+                        </button>
+                        <button class="action-btn">
+                            💬 <span>12</span>
+                        </button>
+                    </div>
+                    <button class="action-btn">📤</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Floating Action Button -->
+        <button class="fab" onclick="showCreateDemo()">+</button>
+
+        <!-- Demo Note -->
+        <div class="demo-note">
+            💡 这是PawPal界面演示 - 点击📷或+按钮体验创建功能
+        </div>
+    </div>
+
+    <script>
+        function toggleLike(button) {
+            const isLiked = button.classList.contains('liked');
+            const heartIcon = button.querySelector('span').previousElementSibling;
+            const countSpan = button.querySelector('span');
+            const currentCount = parseInt(countSpan.textContent);
+            
+            if (isLiked) {
+                button.classList.remove('liked');
+                heartIcon.textContent = '🤍';
+                countSpan.textContent = (currentCount - 1).toString();
+            } else {
+                button.classList.add('liked');
+                heartIcon.textContent = '❤️';
+                countSpan.textContent = (currentCount + 1).toString();
+            }
+        }
+
+        function showCreateDemo() {
+            alert('创建新趣事功能演示:\n\n📝 选择宠物: Max, Luna\n✍️ 编写标题: 例如"午睡时光"\n📖 分享故事: 描述宠物的有趣行为\n📸 添加照片: 记录可爱瞬间\n\n这个功能在实际React Native应用中会打开完整的创建页面！');
+        }
+
+        // 添加一些动态效果
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.moment-card');
+            cards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                setTimeout(() => {
+                    card.style.transition = 'all 0.5s ease';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, index * 200);
+            });
+
+            // 注册Service Worker (PWA功能)
+            if ('serviceWorker' in navigator) {
+                navigator.serviceWorker.register('./sw.js')
+                    .then(registration => {
+                        console.log('PawPal: Service Worker注册成功', registration.scope);
+                    })
+                    .catch(error => {
+                        console.log('PawPal: Service Worker注册失败', error);
+                    });
+            }
+        });
+    </script>
+</body>
+</html>

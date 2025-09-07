@@ -1,0 +1,20 @@
+{
+  "version": 2,
+  "name": "pawpal",
+  "builds": [
+    {
+      "src": "demo.html",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "assets/**",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/",
+      "dest": "/demo.html"
+    }
+  ]
+}

@@ -36,3 +36,20 @@ yarn-error.*
 *.tsbuildinfo
 
 app-example
+
+# PawPal - Documentation files (keep only essential ones)
+FINAL-DEPLOYMENT-STATUS.md
+DEPLOYMENT-WALKTHROUGH.md
+ICON-SETUP-COMPLETE.md
+FREE-PUBLISHING-OPTIONS.md
+PWA-DEPLOYMENT-GUIDE.md
+DEPLOYMENT-SUCCESS.md
+
+# Keep essential PWA files:
+# demo.html - KEEP (main app)
+# manifest.json - KEEP (PWA config)  
+# sw.js - KEEP (service worker)
+# assets/ - KEEP (icons and resources)
+# README.md - KEEP (project description)
+# vercel.json - KEEP (deployment config)
+# deploy-pwa.sh - KEEP (deployment script)
