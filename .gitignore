@@ -3,13 +3,13 @@
 # dependencies
 node_modules/
 
-# Expo
+# Expo (for development only)
 .expo/
 dist/
 web-build/
 expo-env.d.ts
 
-# Native
+# Native (not used in PWA)
 *.orig.*
 *.jks
 *.p8
@@ -17,7 +17,7 @@ expo-env.d.ts
 *.key
 *.mobileprovision
 
-# Metro
+# Metro (not used in PWA)
 .metro-health-check*
 
 # debug
@@ -37,6 +37,9 @@ yarn-error.*
 
 app-example
 
+# PawPal - Keep original complex package.json for development
+package-original.json
+
 # PawPal - Documentation files (keep only essential ones)
 FINAL-DEPLOYMENT-STATUS.md
 DEPLOYMENT-WALKTHROUGH.md
@@ -44,12 +47,16 @@ ICON-SETUP-COMPLETE.md
 FREE-PUBLISHING-OPTIONS.md
 PWA-DEPLOYMENT-GUIDE.md
 DEPLOYMENT-SUCCESS.md
+GIT-AUTH-SETUP.md
+GITHUB-PUBLISH-GUIDE.md
+GITHUB-SUCCESS.md
 
-# Keep essential PWA files:
+# Keep essential PWA files for deployment:
 # demo.html - KEEP (main app)
 # manifest.json - KEEP (PWA config)  
 # sw.js - KEEP (service worker)
 # assets/ - KEEP (icons and resources)
 # README.md - KEEP (project description)
-# vercel.json - KEEP (deployment config)
-# deploy-pwa.sh - KEEP (deployment script)
+# package.json - KEEP (simplified PWA version)
+# netlify.toml - KEEP (Netlify config)
+# .node-version - KEEP (Node version)
